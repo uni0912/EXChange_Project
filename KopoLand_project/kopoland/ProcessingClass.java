@@ -21,8 +21,7 @@ public class ProcessingClass {
 		Date customerDate = sdf.parse(customerIDNumber.substring(2, 6));
 		int todayYear = cal.get(cal.YEAR);
 		Date todayDate = sdf.parse(sdf.format(cal.getTime()));
-		int age = 0;
-		
+				
 		if (customerYear >= 0 && customerYear <= (todayYear-2000)) {
 			customerYear = customerYear + 2000;
 		} else {
@@ -31,11 +30,11 @@ public class ProcessingClass {
 		
 		int compare = customerDate.compareTo(todayDate);
 		if (compare >= 0) {
-			age = todayYear - customerYear - 1;
+			VariableValueClass.age = todayYear - customerYear - 1;
 		} else {
-			age = todayYear - customerYear;
+			VariableValueClass.age = todayYear - customerYear;
 		}
-		return age;
+		return VariableValueClass.age;
 	}
 	//연령대별 분류
 	public int calcAgeGroup(int age) {
@@ -114,10 +113,10 @@ public class ProcessingClass {
 		return calcPrice;
 	}
 	//주문개수에 따른 최종금액 계산
-	public int calctotalPrice(int calcPrice, int ticketCount) {
-		int totalPrice = 0;
-		totalPrice = calcPrice * ticketCount;
-		return totalPrice;
+	public int calcResultPrice(int calcPrice, int ticketCount) {
+		int resultPrice = calcPrice * ticketCount;
+		output.printResultPrice(resultPrice);
+		return resultPrice;
 	}
 
 }
