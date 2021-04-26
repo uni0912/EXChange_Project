@@ -26,11 +26,11 @@ public class InputClass {
 		return ticketSelect;
 	}
 	
-	public int inputCustomerIDNumber() { //고객정보입력
-		int customerIDNumber = 0;
+	public String inputCustomerIDNumber() { //고객정보입력
+		String customerIDNumber = "";
 		System.out.println("생년월일을 입력하세요");
 		try {
-			customerIDNumber = scanner.nextInt();
+			customerIDNumber = scanner.next();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
