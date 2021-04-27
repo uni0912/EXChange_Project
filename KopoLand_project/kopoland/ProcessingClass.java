@@ -2,11 +2,13 @@ package kopoland;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class ProcessingClass {
 	public static Calendar cal = Calendar.getInstance();
+	
 	OutputClass output = null;
 	
 	ProcessingClass() {
@@ -19,7 +21,7 @@ public class ProcessingClass {
 		Date date = new Date();
 		int customerYear = Integer.parseInt(customerIDNumber.substring(0, 2)); 
 		Date customerDate = sdf.parse(customerIDNumber.substring(2, 6));
-		int todayYear = cal.get(cal.YEAR);
+		int todayYear = cal.get(Calendar.YEAR);
 		Date todayDate = sdf.parse(sdf.format(cal.getTime()));
 				
 		if (customerYear >= 0 && customerYear <= (todayYear-2000)) {
@@ -114,9 +116,16 @@ public class ProcessingClass {
 	}
 	//주문개수에 따른 최종금액 계산
 	public int calcResultPrice(int calcPrice, int ticketCount) {
-		int resultPrice = calcPrice * ticketCount;
-		output.printResultPrice(resultPrice);
-		return resultPrice;
+		VariableValueClass.resultPrice = calcPrice * ticketCount;
+		output.printResultPrice(VariableValueClass.resultPrice);
+		return VariableValueClass.resultPrice;
 	}
-
+	
+	public void saveOrderList(ArrayList<String> orderList) {
+		orderList.add(output.printTicketSelect(VariableValueClass.ticketSelect));
+		orderList.add(output.printAgeGroup(VariableValueClass.age));
+		orderList.add(String.format("X  %2d", VariableValueClass.ticketCount));
+		orderList.add(String.format("%d", VariableValueClass.resultPrice));
+		orderList.add(output.printDiscountType(VariableValueClass.discountSelect));
+	}
 }
