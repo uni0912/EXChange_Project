@@ -4,20 +4,21 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class KopoMain {
-
+	static InputClass input;
+	static ProcessingClass pc;
+	static OutputClass out;
+	static ArrayList<String> orderList;
+	static int totalPrice;
+	
 	public static void main(String[] args) throws ParseException {
-		InputClass input;
-		ProcessingClass pc;
-		OutputClass out;
-		
-		
-		while(VariableValueClass.programSelect != 2) {
-			ArrayList<String> orderList = new ArrayList<String>();
-			int totalPrice = 0;
-			do {
-				input = new InputClass();
-				pc = new ProcessingClass();
-				out = new OutputClass();
+				
+		do {
+			input = new InputClass();
+			pc = new ProcessingClass();
+			out = new OutputClass();
+			orderList = new ArrayList<String>();
+			totalPrice = 0;
+			while (true) {
 
 				input.inputAll();
 
@@ -29,10 +30,13 @@ public class KopoMain {
 				totalPrice += VariableValueClass.resultPrice;
 				pc.saveOrderList(orderList);
 				input.inputOrderContinue();
-
-			} while (VariableValueClass.orderContinue != 2);
+				if (VariableValueClass.orderContinue == 2) {
+					break;
+				}
+			}
 			out.printResultReport(orderList, totalPrice);
 			input.inputProgram();
-		}
+
+		} while (VariableValueClass.programSelect != 2);
 	}
 }

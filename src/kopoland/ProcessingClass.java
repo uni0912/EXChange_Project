@@ -19,7 +19,7 @@ public class ProcessingClass {
 	public int calcAge(String customerIDNumber) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
 		int customerYear = Integer.parseInt(customerIDNumber.substring(0, 2)); 
-		Date customerDate = sdf.parse(customerIDNumber.substring(2, 6));
+		Date customerDate = sdf.parse(customerIDNumber.substring(2));
 		int todayYear = cal.get(Calendar.YEAR);
 		Date todayDate = sdf.parse(sdf.format(cal.getTime()));
 				
