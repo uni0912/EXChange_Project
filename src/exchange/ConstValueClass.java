@@ -8,5 +8,5 @@ public class ConstValueClass {
 	final static double EX_RATE_USD = 1127.3;
 	final static double EX_RATE_EUR = 1349.4;
 	final static double EX_RATE_JPY = 10.197;
-	final static String FILE = "C:\\Users\\kopo28\\Desktop\\과제함\\자바심화\\exchange.csv";
+	final static String FILE = "exchange.csv";
 }
