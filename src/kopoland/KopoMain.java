@@ -19,10 +19,6 @@ public class KopoMain {
 				pc = new ProcessingClass();
 				out = new OutputClass();
 
-//				input.inputTicketSelect();
-//				input.inputCustomerIDNumber();
-//				input.inputTicketCount();
-//				input.inputDiscountSlect();
 				input.inputAll();
 
 				pc.calcAge(VariableValueClass.customerIDNumber);

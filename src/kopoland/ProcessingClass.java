@@ -18,7 +18,6 @@ public class ProcessingClass {
 	//만나이 계산 함수
 	public int calcAge(String customerIDNumber) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("MMdd");
-		Date date = new Date();
 		int customerYear = Integer.parseInt(customerIDNumber.substring(0, 2)); 
 		Date customerDate = sdf.parse(customerIDNumber.substring(2, 6));
 		int todayYear = cal.get(Calendar.YEAR);
