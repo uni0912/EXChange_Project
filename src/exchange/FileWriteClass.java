@@ -12,13 +12,13 @@ public class FileWriteClass { //클래스 선언
 	
 	public FileWriteClass() { 
 		try {
-			File file = new File("C:\\Users\\kopo28\\Desktop\\과제함\\자바심화\\exchange.csv");
+			File file = new File(ConstValueClass.FILE);
 			if(file.exists() == false) { //파일이 생성되어 있지 않으면
 				isFileExist = false; //파일존재변수는 false값을 가지고
 			} else { //파일이 생성되어 있으면
 				isFileExist = true; //파일존재변수는 true값을 가진다
 			}
-			fw = new FileWriter("C:\\Users\\kopo28\\Desktop\\과제함\\자바심화\\exchange.csv",true);
+			fw = new FileWriter(ConstValueClass.FILE,true);
 			//파일경로에 fw가 덧붙여서 계속 써준다.
 		} catch (IOException e) {
 			// TODO: handle exception
